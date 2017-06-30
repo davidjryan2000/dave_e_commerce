@@ -23,6 +23,7 @@ from django.views import static
 from .settings import MEDIA_ROOT
 from Cart import urls as cart_urls
 from Payments import urls as payments_urls
+from Categories import urls as categories_urls
 
 from django.conf.urls import url, include
 
@@ -39,6 +40,7 @@ urlpatterns = [
     url(r'^media/(?P<path>.*)$', static.serve,{'document_root': MEDIA_ROOT}),
     url(r'^cart/', include(cart_urls)),
     url(r'^payments/', include(payments_urls)),
+    url(r'^categories/', include(categories_urls)),
 
 
 ]

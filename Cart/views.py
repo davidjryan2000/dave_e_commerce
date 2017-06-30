@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 from .models import CartItem
 from django.contrib.auth.decorators import login_required
 from Products.models import Product
-#from Payments.forms import MakePaymentForm
+from Payments.forms import MakePaymentForm
 from django.template.context_processors import csrf
 from django.contrib import messages
 from django.conf import settings

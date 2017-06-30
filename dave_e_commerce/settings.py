@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'Home',
     'Accounts',
     'Cart',
-    # 'Categories',
+    'Categories',
     'Payments',
     'Products',
     # 'rest_framework'
