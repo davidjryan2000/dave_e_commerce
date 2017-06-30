@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'Categories',
     'Payments',
     'Products',
+    'Gallery',
     # 'rest_framework'
 ]
 

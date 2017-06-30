@@ -64,7 +64,7 @@ def user_cart(request):
 @login_required(login_url="/accounts/login")
 def add_to_cart(request, id):
     product = get_object_or_404(Product, pk=id)
-    quantity=int(request.POST.get('quantity'))
+    quantity=1
 
     try:
         cartItem = CartItem.objects.get(user=request.user, product=product)

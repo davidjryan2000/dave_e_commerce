@@ -29,6 +29,7 @@ from django.conf.urls import url, include
 
 from Products import views as product_views
 from Cart import views as cart_views
+from Gallery import urls as gallery_urls
 
 
 
@@ -41,6 +42,7 @@ urlpatterns = [
     url(r'^cart/', include(cart_urls)),
     url(r'^payments/', include(payments_urls)),
     url(r'^categories/', include(categories_urls)),
+    url(r'^gallery/', include(gallery_urls)),
 
 
 ]
