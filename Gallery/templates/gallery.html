@@ -23,12 +23,15 @@
 
 {% for product in products %}
             <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter {{product.tag}}">
+                <div class="thumbnail">
                 <img src= "{{ MEDIA_URL }}{{ product.image }}" class="img-responsive" height="100%" width="100%">
-                <figcaption>"{{ product.name}}"</figcaption>
+                <figcaption><h4>"{{ product.name}}"</h4></figcaption>
+                <p>"{{ product.description }}</p>
                 <form method="POST" action="/cart/add/{{product.id}}"> 
                 {% csrf_token %}
                  <button class="btn btn-default filter-button">Buy</button></p>
                  </form>
+                 </div>
                  </div>
 {% endfor %}         
            
@@ -127,3 +130,6 @@ $(this).addClass("active");
 <script src="src/js/mag-jquery.js"></script>
 
 {% endblock content %}
+
+
+{% comment %}https://bootsnipp.com/snippets/featured/thumbnail-with-caption-amp-buttons{% endcomment %}

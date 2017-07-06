@@ -15,7 +15,83 @@
 
 </body>{% endcomment %}
 
+<section class= 'col-sm-12'>
 
-Hello World
+    <div class= 'col-sm-4 float-left'
+    	<article>
+
+            <figure>
+                <img class="Mailo" src="{% static 'images/headshot.jpeg' %}">
+                
+                <figcaption text-align:center >Mailo Power</figcaption>
+            </figure>
+
+            <p>Lives and works in Waterford, Ireland</p>
+            
+            <h2>Biography</h2>
+            
+            <ul>
+            <li>Born London 1960</li>
+            <li>2004 N.Dip Art & Technology Waterford Institute of Technology</li>
+            <li>2005 BA (Honours) Art & Society Waterford Institute of Technology</li>
+            <li>2007 M.A. Fine Art University of Gloucestershire</li>
+            <li>2014 Garter Lane Studio Artist</li>
+            <li>2015 Garter Lane Studio Artist</li>
+            </ul>
+     
+        </article>
+    </div>
+
+ {% comment %} <div class='col-sm-4 centre'>
+      <div class="fullscreen-bg">
+      <video loop muted autoplay poster="img/videoframe.jpg" class="fullscreen-bg__video">
+        <source src="Yellow_rose.mp4" type="video/webm">
+        <source src="Yellow_rose.mp4" type="video/mp4">
+        <source src="Yellow_rose.mp4" type="video/ogg">
+      </video>
+      </div>
+  </div>{% endcomment %}
+
+  
+  <div class='col-sm-4 centre'>
+    <div class="fullscreen-bg">
+        <video loop muted autoplay poster="img/videoframe.jpg" class="fullscreen-bg__video">
+            <source src="{% static "Video/Yellow_rose.mp4" %}" type="video/webm">
+            <source src="{% static "Video/Yellow_rose.mp4" %}" type="video/mp4">
+            <source src="{% static "Video/Yellow_rose.mp4" %}" type="video/ogg">
+        </video>
+        </div>
+  </div>
+
+
+      <article class= 'col-sm-4 float-right text-center'>
+       
+                  <h2>Exhibitions</h2>
+      <ul>
+       
+      <li>2004 Waterford Fringe Festival (solo)</li>
+      <li>2005 Waterford Institute of Technology Degree Show (group)</li>
+      <li>2006 Source Waterford Healing Arts Trust, S.E.R.H. (solo)</li>
+      <li>2007 University of Gloucestershire MA Show, Cheltenham (group)</li>
+      <li>2008 Identity Open Submission Exhibition Greyfriars Municipal Gallery, Waterford (group)</li>
+      <li>2009 Theatre of the Everyday, Imagine Art Festival (solo)</li>
+      <li>2009 Art Fair RDS (group)</li>
+      <li>2010 Take 5 (group)</li>
+      <li>2010 W.I.T. 40th Anniversary Celebration Art Collection (group)</li>
+      <li>2011 Moments, Imagine Art Festival (group)</li>
+      <li>2012 Harvest, Waterford Healing Arts, Imagine Art Festival (group)</li>
+      <li>2014 From the Studios, FOH Space, Garter Lane Arts Centre (group)</li>
+      <li>2014 6x6x2014 Rochester Contemporary Art Centre, New York (group)</li>
+      <li>2014 Pop Up Art, St Olaf’s, Imagine Arts Festival, Waterford (group)</li>
+      <li>2015 Out of the Studios, Garter Lane Arts Centre, Waterford (group)</li>
+      <li>016 Mimesis exhibition, Athenaeum House Hotel (solo)</li>
+      <li>2017 Art On The Island (group) </li>
+      </ul>
+      
+      	</article>
+</section>
+
+
+
     
 {% endblock content %}
