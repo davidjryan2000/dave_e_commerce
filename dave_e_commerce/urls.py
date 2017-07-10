@@ -43,6 +43,7 @@ urlpatterns = [
     url(r'^payments/', include(payments_urls)),
     url(r'^categories/', include(categories_urls)),
     url(r'^gallery/', include(gallery_urls)),
+    
 
 
 ]

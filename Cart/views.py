@@ -63,6 +63,7 @@ def user_cart(request):
 
 @login_required(login_url="/accounts/login")
 def add_to_cart(request, id):
+    print(request.POST)
     product = get_object_or_404(Product, pk=id)
     quantity=1
 

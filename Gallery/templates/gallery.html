@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
-{% block content %}
 {% load static %}
+{% block head_css %}<link rel="stylesheet" type="text/css" href="{% static 'font-awesome/css/gallery.css' %}" />{% endblock %}
+{% block content %}
+
+
+
+
+
 
 
 
@@ -14,73 +20,68 @@
 
         <div align="center">
             <button class="btn btn-default filter-button" data-filter="all">All</button>
-            <button class="btn btn-default filter-button" data-filter="hdpe">HDPE Pipes</button>
-            <button class="btn btn-default filter-button" data-filter="sprinkle">Sprinkle Pipes</button>
-            <button class="btn btn-default filter-button" data-filter="spray">Spray Nozzle</button>
-            <button class="btn btn-default filter-button" data-filter="irrigation">Irrigation Pipes</button>
+            <button class="btn btn-default filter-button" data-filter="Spring">Spring</button>
+            <button class="btn btn-default filter-button" data-filter="Summer">Summer</button>
+            <button class="btn btn-default filter-button" data-filter="Flowers">Flowers</button>
+            <button class="btn btn-default filter-button" data-filter="Roses">Roses</button>
         </div>
         <br/>
 
 {% for product in products %}
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter {{product.tag}}">
+            
+        <div class="product-container">
+            <div class="left-block">
+                <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter {{product.tag}}">
                 <div class="thumbnail">
                 <img src= "{{ MEDIA_URL }}{{ product.image }}" class="img-responsive" height="100%" width="100%">
+            <div class="right-block">
+                <figcaption><h4>"{{ product.name}}"</h4></figcaption>
+                <p>"{{ product.description }}</p>
+
+        <div>
+                <a href="{% url 'product_options' product.id %}" class="btn btn-info" role="button">Buy</a>
+        </div>     
+
+                {% comment %}<form method="POST" action="/cart/add/{{product.id}}"> 
+                {% csrf_token %}
+                 <button class="btn btn-default filter-button">Buy</button></p>{% endcomment %}
+                 </form>
+                 </div>
+                 </div>
+                 </div>
+                 </div>
+        </div>
+
+{% endfor %}   
+
+{% comment %}<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <img src= "{{ MEDIA_URL }}{{ product.image }}" class="img-responsive" height="100%" width="100%">
+            <div class="right-block">
                 <figcaption><h4>"{{ product.name}}"</h4></figcaption>
                 <p>"{{ product.description }}</p>
                 <form method="POST" action="/cart/add/{{product.id}}"> 
                 {% csrf_token %}
-                 <button class="btn btn-default filter-button">Buy</button></p>
-                 </form>
-                 </div>
-                 </div>
-{% endfor %}         
-           
-          <!-- <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
-                <img src= '{% static "Images/IMG_2034.JPG" %}') class="img-responsive" height="100%" width="100%">
-            </div>
-
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-                <img src= url('{% static "Images/IMG_2035.JPG" % }') class="img-responsive" height="100%" width="100%">
-            </div>
-
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
-                <img src= url (' {% static "Images/IMG_2038.JPG" %}') class="img-responsive" height="100%" width="100%">
-            </div>
-
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter spray">
-                <img src= url('{% static "Images/IMG_2042.JPG" %}') class="img-responsive" height="100%" width="100%">
-            </div>
-
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
-                <img src=  url ('{% static "Images/IMG_2040.JPG" %}') class="img-responsive" height="100%" width="100%">
-            </div>
-
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter spray">
-                <img src= url ('{% static "Images/IMG_2047.JPG" %}') class="img-responsive" height="100%" width="100%">
-            </div>
-
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
-                <img src= url ('{% static "Images/IMG_2045.JPG" %}')  class="img-responsive" height="100%" width="100%">
-            </div>
-
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
-                <img src= url ('{% static "Images/IMG_2050.JPG" %}') class="img-responsive" height="100%" width="100%">
-            </div>
-
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-                <img src="http://fakeimg.pl/365x365/" class="img-responsive" height="100%" width="100%">
-            </div>
-
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter spray">
-                <img src="http://fakeimg.pl/365x365/" class="img-responsive" height="100%" width="100%">
-            </div>
-
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
-                <img src="http://fakeimg.pl/365x365/" class="img-responsive" height="100%" width="100%">
-            </div>
-        </div>
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <hr>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
     </div>
-</section> -->
+  </div>
+</div>      {% endcomment %}
+           
+          
+               
+
 
 </body>
 
@@ -119,7 +120,18 @@ $(this).addClass("active");
 
 });
 
-</script> -->
+$("#myModal").on("click", function() { alert("clicked")
+   $('#imagepreview').attr('src', $('#imageresource').attr('src')); // here asign the image to the modal when the user click the enlarge link
+   $('#imagemodal').modal('show'); // imagemodal is the id attribute assigned to the bootstrap modal, then i use the show function
+});
+
+//Dropdown menu js
+
+$('.dropdown-menu a').on('click', function(){    
+    $('.dropdown-toggle').html($(this).html() + '<span class="caret"></span>');    
+})
+
+</script> 
 
 
 <!--<script type='javascript' src='Prints.js'> </script>-->
