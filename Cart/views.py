@@ -9,6 +9,7 @@ from django.contrib import messages
 from django.conf import settings
 import stripe
 from django.contrib.auth.models import User
+#from Cart.models import order
 
 
 
@@ -65,19 +66,54 @@ def user_cart(request):
 def add_to_cart(request, id):
     print(request.POST)
     product = get_object_or_404(Product, pk=id)
-    quantity=1
 
-    try:
-        cartItem = CartItem.objects.get(user=request.user, product=product)
-        cartItem.quantity += quantity
-    except CartItem.DoesNotExist:
-        cartItem = CartItem(
-            user=request.user,
-            product=product,
-            quantity=quantity
-        )
+    paper = request.POST['paper']
+    if paper != 'Select Size...':
+        try:
+            cartItem = CartItem.objects.get(user=request.user, product=product, order=paper)
+            cartItem.quantity += 1
+        except CartItem.DoesNotExist:
+            cartItem = CartItem(
+                user=request.user,
+                product=product,
+                quantity=1,
+                order=paper
+            )
 
-    cartItem.save()
+        cartItem.save()
+
+
+    canvas = request.POST['canvas']
+    if paper != 'Select Size...':
+        try:
+            cartItem = CartItem.objects.get(user=request.user, product=product, order=canvas)
+            cartItem.quantity += 1
+        except CartItem.DoesNotExist:
+            cartItem = CartItem(
+                user=request.user,
+                product=product,
+                quantity=1,
+                order=canvas
+            )
+
+        cartItem.save()
+
+
+    diasec = request.POST['diasec']
+    if diasec != 'Select Size...':
+        try:
+            cartItem = CartItem.objects.get(user=request.user, product=product, order=diasec)
+            cartItem.quantity += 1
+        except CartItem.DoesNotExist:
+            cartItem = CartItem(
+                user=request.user,
+                product=product,
+                quantity=1,
+                order=diasec
+            )
+
+        cartItem.save()
+
     return redirect(reverse('cart'))
 
 

@@ -13,7 +13,7 @@
 
 
 <td>
-    <form method="post" action=" {% url 'add_to_cart' product.id %}">
+    <form method="post" action=" {% url 'add_to_cart' product.id  %}">
         {% csrf_token %}
             
             <h4>PAPER</h4>
@@ -21,11 +21,11 @@
            <div class="btn-group">
             <select class="form-control btn btn-default dropdown-toggle option-value" name="paper">
             <option value="Select Size">Select Size...</option>
-            <option value="A4 matte - €50">A4 matte - €50</option>
-            <option value="A3 matte - €60">A3 matte - €60</option>
-            <option value="A2 matte - €279">A2 matte - €279</option>
-            <option value="A1 matte - €325">A1 matte - €325</option>
-            <option value="A0 matte - €379">A0 matte - €379</option>
+            <option value="Paper A4 matte ">A4 matte - €50</option>
+            <option value="Paper A3 matte">A3 matte - €60</option>
+            <option value="Paper A2 matte">A2 matte - €279</option>
+            <option value="Paper A1 matte">A1 matte - €325</option>
+            <option value="Paper A0 matte">A0 matte - €379</option>
             </select>
             </div>
         
@@ -33,51 +33,26 @@
             <h4>CANVAS</h4>
             <h5>Limited Edition of 50. Please email for delivery quote .</h5>
             <div class="btn-group">
-
-            <select class="form-control btn btn-default dropdown-toggle option-value" name="paper">
+            <select class="form-control btn btn-default dropdown-toggle option-value" name="canvas">
             <option value="Select Size">Select Size...</option>
-            <option value="Large 95 x 130 cm - €850">A4 matte - €50</option>
-            <option value="Small 50 x  70 cm - €450">A3 matte - €60</option>
+            <option value="Canvas Large 95 x 120 cm ">Large 95 x 120 cm - €1,050</option>
+            <option value="Canvas Small 50 x 65 cm">Small 50 x 65 cm - €595</option>
             </select>
             </div>
             
             
-            {% comment %}<button type="button" class="form-control btn btn-default dropdown-toggle" data-toggle="dropdown">
-            Select Size... <span class="caret"></span>
-             </button>
-           
-            <ul class="dropdown-menu" role="menu" name="canvas">
-                <li><a href="#">Large 95 x 130 cm - €850</a></li>
-                <li><a href="#">Small 50 x  70 cm - €450</a></li>
-            </ul>
-        </div>{% endcomment %}
-        
-                
-
             <h4>DIASEC</h4>
             <h5>Limited Edition of 50. Please email for delivery quote .</h5>
             <div class="btn-group"> <span class="caret"></span>
-            <select class="form-control btn btn-default dropdown-toggle option-value" name="paper">
+            <select class="form-control btn btn-default dropdown-toggle option-value" name="diasec">
             <option value="Select Size">Select Size...</option>
-            <option value="Large 95 x 130 cm - €1,850">A4 matte - €50</option>
-            <option value="Small 50 x  70 cm - €950">A3 matte - €60</option>
+            <option value="Diasec Large 95 x 120 cm">Large 95 x 120 cm - €2,100</option>
+            <option value="Diasec Small 50 x 65 cm">Small 50 x 65 cm- €850</option>
             </select>
             </div>
              <div></div>
              <br>
 
-
-
-            {% comment %}<button type="button" class="form-control btn btn-default dropdown-toggle" data-toggle="dropdown">
-            Select Size... <span class="caret"></span>
-             </button>
-           
-            <ul class="dropdown-menu" role="menu" name="diasec">
-                <li><a href="#">Large 95 x 130 cm - €1,850</a></li>
-                <li><a href="#">Small 50 x  70 cm - €950</a></li>
-            </ul>
-        </div>
-        <br>{% endcomment %}
        
         
         <div>
@@ -94,37 +69,9 @@
 
 {% endblock %}
 
- {% comment %}<div align="center">
-            <button class="btn btn-default filter-button" data-filter="all">All</button>
-            <button class="btn btn-default filter-button" data-filter="hdpe">HDPE Pipes</button>
-            <button class="btn btn-default filter-button" data-filter="sprinkle">Sprinkle Pipes</button>
-            <button class="btn btn-default filter-button" data-filter="spray">Spray Nozzle</button>
-            <button class="btn btn-default filter-button" data-filter="irrigation">Irrigation Pipes</button>
-        </div>
-        <br/>
-
- <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                <img src="static/Images/IMG_2035.JPG" class="img-responsive" height="100%" width="100%">
-            </div>{% endcomment %}
-
-
-
-{% comment %}{% for product in products %}
-
-    <div class="product-container">
-                <div class="left-block">
-                    <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter {{product.tag}}">
-                    <div class="thumbnail">
-                    <img src= "{{ MEDIA_URL }}{{ product.image }}" class="img-responsive" height="100%" width="100%">
-                    <div class="right-block">
-                    <figcaption><h4>"{{ product.name}}"</h4></figcaption>
-                    <p>"{{ product.description }}</p>
-
-                </div>
-                    </div>
-                    </div>
-                </div>
-    </div>
-
-{% endfor %}  
-{% endcomment %}
+<form method="post" action="{% url 'adjust_cart' item.id %}">
+                        {% csrf_token %}
+                        Quantity
+                        <input name='quantity' type="number" min="0" max="999">
+                        <button type="submit">Adjust</button>
+                    </form>

@@ -9,6 +9,7 @@ class CartItem(models.Model):
     user = models.ForeignKey(User)
     product = models.ForeignKey(Product)
     quantity = models.IntegerField()
+    order = models.CharField(max_length=40, default='')
 
     def __str__(self):
         return "{0} ({1})".format(self.product.name, self.quantity)
