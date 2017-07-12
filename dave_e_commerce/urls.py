@@ -32,6 +32,12 @@ from Cart import views as cart_views
 from Gallery import urls as gallery_urls
 
 
+'''router = routers.DefaultRouter()
+router.register(r'products', product_views.ProductViewSet)
+router.register(r'users', cart_views.UserViewSet)
+router.register(r'cart', cart_views.CartItemViewSet)'''
+
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -43,6 +49,7 @@ urlpatterns = [
     url(r'^payments/', include(payments_urls)),
     url(r'^categories/', include(categories_urls)),
     url(r'^gallery/', include(gallery_urls)),
+   # url(r'user/', include(reset_urls)),
     
 
 
