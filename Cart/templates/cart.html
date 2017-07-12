@@ -28,11 +28,11 @@
         <tbody>
         {% for item in items %}
             <tr>
-                <td><img height="100" width="100" src="{{ MEDIA_URL }}{{ item.product.image }}"></td>
-                <td>{{ item.product.name }}</td>
-                <td>{{ item.product.description }}</td>
-                <td>{{ item.order }}</td>
-                <td>{{ item.product.price }}</td>
+                <td><img height="100" width="100" src="{{ MEDIA_URL }}{{ item.design.image }}"></td>
+                <td>{{ item.design.name }}</td>
+                <td>{{ item.design.description }}</td>
+                <td>{{ item.medium }}</td>
+                <td>{{ item.medium.price }}</td>
                 <td>{{ item.quantity }}</td>
                 <td>
                     <form method="post" action="{% url 'adjust_cart' item.id %}">

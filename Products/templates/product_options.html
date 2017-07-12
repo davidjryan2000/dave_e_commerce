@@ -1,63 +1,47 @@
 {% extends "base.html" %}
 {% load static %}
-{% block head_css %}<link rel="stylesheet" type="text/css" href="{% static 'font-awesome/css/product-options.css' %}" />{% endblock %}
+{% block head_css %}<link rel="stylesheet" type="text/css" href="{% static 'font-awesome/css/project_options.css' %}" />{% endblock %}
 {% block content %}
-    <h1>{{ product.name }}</h1>
+    <h1>{{ design.name }}</h1>
 
 
 
 <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6">
-  <img src= "{{ MEDIA_URL }}{{ product.image }}" class="img-responsive" height="100%" width="100%">
+  <img src= "{{ MEDIA_URL }}{{ design.image }}" class="img-responsive" height="100%" width="100%">
 </div>
 
 
 
 <td>
-    <form method="post" action=" {% url 'add_to_cart' product.id  %}">
-        {% csrf_token %}
-            
-            <h4>PAPER</h4>
-            <h5>Limited Edition of 200. Watercolour or heavy matte paper.</h5>
-           <div class="btn-group">
-            <select class="form-control btn btn-default dropdown-toggle option-value" name="paper">
-            <option value="Select Size">Select Size...</option>
-            <option value="Paper A4 matte ">A4 matte - €50</option>
-            <option value="Paper A3 matte">A3 matte - €60</option>
-            <option value="Paper A2 matte">A2 matte - €279</option>
-            <option value="Paper A1 matte">A1 matte - €325</option>
-            <option value="Paper A0 matte">A0 matte - €379</option>
-            </select>
-            </div>
-        
-            
-            <h4>CANVAS</h4>
-            <h5>Limited Edition of 50. Please email for delivery quote .</h5>
+    <form method="post" action=" {% url 'add_to_cart' design.id  %}">
+            {% csrf_token %}             
+            <h4>Media</h4>
+            <h5>Select your medium of choice.</h5>
             <div class="btn-group">
-            <select class="form-control btn btn-default dropdown-toggle option-value" name="canvas">
-            <option value="Select Size">Select Size...</option>
-            <option value="Canvas Large 95 x 120 cm ">Large 95 x 120 cm - €1,050</option>
-            <option value="Canvas Small 50 x 65 cm">Small 50 x 65 cm - €595</option>
+            <select class="form-control btn btn-default dropdown-toggle option-value" name="selected_media">
+            <option value="-1">Select Size...</option>
+            {% for media_type in media_types %}
+                <option value="{{ media_type.id }}">{{ media_type.name }} - €{{ media_type.price }}</option>
+            {% endfor %}
             </select>
             </div>
             
-            
-            <h4>DIASEC</h4>
-            <h5>Limited Edition of 50. Please email for delivery quote .</h5>
-            <div class="btn-group"> <span class="caret"></span>
-            <select class="form-control btn btn-default dropdown-toggle option-value" name="diasec">
-            <option value="Select Size">Select Size...</option>
-            <option value="Diasec Large 95 x 120 cm">Large 95 x 120 cm - €2,100</option>
-            <option value="Diasec Small 50 x 65 cm">Small 50 x 65 cm- €850</option>
-            </select>
-            </div>
-             <div></div>
+             <br> 
              <br>
-
-       
-        
-        <div>
-                <button type="submit" class="btn btn-default filter-button">Add to Cart</button></p>
-        </div>
+             <br>
+             <br>
+             <br>
+             <br>
+                <br> 
+             <br>
+             <br>
+             <br>
+             <br>
+             <br>       
+            
+            <div>
+                <button type="submit" class="btn btn-default filter-button ">Add to Cart</button></p>
+            </div>
     </form>
 <script>
 

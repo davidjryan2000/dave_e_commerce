@@ -9,11 +9,6 @@ import stripe
 
 stripe.api_key = settings.STRIPE_SECRET
 
-print(settings.STRIPE_PUBLISHABLE)
-print(settings.STRIPE_SECRET)
-
-
-
 @login_required(login_url="/accounts/login")
 def buy_now(request, id):
     if request.method == 'POST':

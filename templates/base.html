@@ -9,8 +9,8 @@
     <meta name="author" content="">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/cerulean/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
-    <link rel="stylesheet" href="{% static 'font-awesome/css/home.css' %}">
     <link rel="stylesheet" href="{% static 'font-awesome/css/gallery.css' %}">
+    <link rel="stylesheet" href="{% static 'font-awesome/css/product-options.css' %}">
     {% block head_css %}{% endblock %}
 
 
@@ -44,7 +44,10 @@
 </script>
     {% block head_js %}{% endblock %}
 </head>
+
 <body>
+
+<header id = "site_header">
 <div class="container">
    <div class="masthead">
        <ul class="nav nav-pills pull-right">
@@ -72,7 +75,8 @@
             </div>
         </div>
     {% endif %}
-
+    </div>
+</header>
 
 
     <div class="row">
@@ -91,21 +95,24 @@
     </div>
 
    <hr>
-   <footer class="col-12">
+
+
+
+ <footer id ="site-footer">
+ 
+   <div class="col-12" >
 
 	<div class="col-sm-3">
     <h4>About Mailo</h4>
     <p>Inspirational quote about the work in here....</p>
     <a href="#" class="btn btn-success">
        Learn</a>
-</div>
+    </div>
 
 	<div class="col-sm-3">
-    <h4>Blog</h4>
-    <p>Blog link in here....</p>
-    <a href="#" class="btn btn-success">
-       Learn</a>
-</div>
+        <h4>Blog</h4>
+        <p>Blog link in here....</p><a href="#" class="btn btn-success">Learn</a>
+    </div>
 
 	<div class="col-sm-3">
     <h4>Social Media</h4>
@@ -114,24 +121,24 @@
     <a href="https://www.twitter.com"><img class="socimage" src="{% static 'images/twitter-icon.svg' %}" width= '50', height= '50'></a>
     <a href="https://www.instagram.com"><img class="socimage" src="{% static 'images/instagramicon.jpg' %}" width= '50', height= '50'></a>
     <a href="https://www.linkedin.com"><img class="socimage" src="{% static 'images/linkedin-icon.jpg' %}" width= '50', height= '50'></a>
-
+    </div>
     <!--<a href="#" class="btn btn-success">
        Learn</a>-->
-</div>
+    </div>
 
-<div class="col-sm-3">
-    <h4>Newsletter Signup</h4>
-    <p>Sign up for newsletter here....</p>
-    <input type="text" />
-    <br>
-    <p> E: mailopower@icloud.com</br>
-  <br<p>M: 00353 87 2599 251 </p>
-    </br>
-</div>
+    <div class="col-sm-3">
+        <h4>Newsletter Signup</h4>
+        <p>Sign up for newsletter here....</p>
+        <input type="text" />
+        <br>
+        <p> E: mailopower@icloud.com</br>
+    <br<p>M: 00353 87 2599 251 </p>
+        </br>
+    </div>
     
-</div>
+    </div>
       
-	</footer>
+</footer>
    {% comment %}<div class="footer">
        <p>Made By Bootcampers and Django </p>
    </div>

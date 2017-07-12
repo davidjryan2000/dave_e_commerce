@@ -3,6 +3,8 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 from .models import CartItem
 from django.contrib.auth.decorators import login_required
 from Products.models import Product
+from Products.models import Design
+from Products.models import Medium
 from Payments.forms import MakePaymentForm
 from django.template.context_processors import csrf
 from django.contrib import messages
@@ -22,7 +24,7 @@ def user_cart(request):
     cartItems = CartItem.objects.filter(user=request.user)
     total = 0
     for item in cartItems:
-        total += item.quantity * item.product.price
+        total += item.quantity * item.medium.price
 
     if request.method == 'POST':
         form = MakePaymentForm(request.POST)
@@ -40,7 +42,7 @@ def user_cart(request):
             if customer.paid:
                 messages.success(request, "You have successfully paid")
                 CartItem.objects.filter(user=request.user).delete()
-                return redirect(reverse('products'))
+                return redirect(reverse('gallery'))
             else:
                 messages.error(request, "Unable to take payment")
         else:
@@ -64,56 +66,22 @@ def user_cart(request):
 
 @login_required(login_url="/accounts/login")
 def add_to_cart(request, id):
-    print(request.POST)
-    product = get_object_or_404(Product, pk=id)
-
-    paper = request.POST['paper']
-    if paper != 'Select Size...':
-        try:
-            cartItem = CartItem.objects.get(user=request.user, product=product, order=paper)
-            cartItem.quantity += 1
-        except CartItem.DoesNotExist:
-            cartItem = CartItem(
-                user=request.user,
-                product=product,
-                quantity=1,
-                order=paper
-            )
-
-        cartItem.save()
-
-
-    canvas = request.POST['canvas']
-    if paper != 'Select Size...':
-        try:
-            cartItem = CartItem.objects.get(user=request.user, product=product, order=canvas)
-            cartItem.quantity += 1
-        except CartItem.DoesNotExist:
-            cartItem = CartItem(
-                user=request.user,
-                product=product,
-                quantity=1,
-                order=canvas
-            )
-
-        cartItem.save()
-
-
-    diasec = request.POST['diasec']
-    if diasec != 'Select Size...':
-        try:
-            cartItem = CartItem.objects.get(user=request.user, product=product, order=diasec)
-            cartItem.quantity += 1
-        except CartItem.DoesNotExist:
-            cartItem = CartItem(
-                user=request.user,
-                product=product,
-                quantity=1,
-                order=diasec
-            )
-
-        cartItem.save()
-
+    design = get_object_or_404(Design, pk=id)
+    selected_media = int(request.POST['selected_media'])
+    medium = get_object_or_404(Medium, pk=selected_media)
+   # if paper != 'Select Size...':
+    try:
+        cartItem = CartItem.objects.get(user=request.user,design=design, medium=medium)
+        cartItem.quantity += 1
+    except CartItem.DoesNotExist:
+        cartItem = CartItem(
+            user=request.user,
+            #product=product,
+            design=design,
+            medium=medium,
+            quantity=1,
+        )
+    cartItem.save()
     return redirect(reverse('cart'))
 
 

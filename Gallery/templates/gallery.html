@@ -5,12 +5,6 @@
 
 
 
-
-
-
-
-
-
 <body>
 <div class="container">
         <div class="row">
@@ -27,19 +21,19 @@
         </div>
         <br/>
 
-{% for product in products %}
+{% for design in designs %}
             
         <div class="product-container">
             <div class="left-block">
-                <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter {{product.tag}}">
+                <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter {{design.tag}}">
                 <div class="thumbnail">
-                <img src= "{{ MEDIA_URL }}{{ product.image }}" class="img-responsive" height="100%" width="100%">
+                <img src= "{{ MEDIA_URL }}{{ design.image }}" class="img-responsive" height="100%" width="100%">
             <div class="right-block">
-                <figcaption><h4>"{{ product.name}}"</h4></figcaption>
-                <p>"{{ product.description }}</p>
+                <figcaption><h4>"{{ design.name}}"</h4></figcaption>
+                <p>"{{ design.description }}</p>
 
         <div>
-                <a href="{% url 'product_options' product.id %}" class="btn btn-info" role="button">Buy</a>
+                <a href="{% url 'product_options' design.id %}" class="btn btn-info" role="button">Buy</a>
         </div>     
 
                 {% comment %}<form method="POST" action="/cart/add/{{product.id}}"> 
@@ -54,14 +48,16 @@
 
 {% endfor %}   
 
+
+
 {% comment %}<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-        <img src= "{{ MEDIA_URL }}{{ product.image }}" class="img-responsive" height="100%" width="100%">
+        <img src= "{{ MEDIA_URL }}{{ design.image }}" class="img-responsive" height="100%" width="100%">
             <div class="right-block">
-                <figcaption><h4>"{{ product.name}}"</h4></figcaption>
-                <p>"{{ product.description }}</p>
-                <form method="POST" action="/cart/add/{{product.id}}"> 
+                <figcaption><h4>"{{ design.name}}"</h4></figcaption>
+                <p>"{{ design.description }}</p>
+                <form method="POST" action="/cart/add/{{design.id}}"> 
                 {% csrf_token %}
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -77,8 +73,8 @@
       </div>
     </div>
   </div>
-</div>      {% endcomment %}
-           
+</div>      
+           {% endcomment %}
           
                
 
@@ -92,6 +88,15 @@
 
 
 <script>
+
+$(document).ready(function () {
+        $('#myModal').on('show.bs.modal', function (e) {
+            var image = $(e.relatedTarget).attr('src');
+            $(".img-responsive").attr("src", image);
+        });
+});
+
+
 
 $(document).ready(function(){
 
