@@ -1,0 +1,1 @@
+web: gunicorn dave_e_commerce.wsgi:application
