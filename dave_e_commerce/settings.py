@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG',False)
 
-ALLOWED_HOSTS = ['mailopower.herokuapp.com']
+ALLOWED_HOSTS = ['mailopower.herokuapp.com', 'localhost']
 INTERNAL_IPS = []
 
 
@@ -52,7 +52,8 @@ INSTALLED_APPS = [
     'Payments',
     'Products',
     'Gallery',
-    # 'rest_framework'
+    # 'rest_framework',
+    'psycopg2'
 ]
 
 MIDDLEWARE = [
