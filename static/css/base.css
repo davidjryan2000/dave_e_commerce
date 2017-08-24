@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 
@@ -43,6 +44,8 @@ font-family: 'Titillium Web', sans-serif;
 
 =======
 >>>>>>> origin/master
+=======
+>>>>>>> 4f9f50c11511d2d0d04b8d13fae634149a9696e3
 .content{
 
   margin: 0 auto;
@@ -56,6 +59,7 @@ font-family: 'Titillium Web', sans-serif;
 }
 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 #site-footer {
   position: absolute;
@@ -77,14 +81,22 @@ font-family: 'Titillium Web', sans-serif;
     background-color: #3a3f46;
     color: white;
 >>>>>>> origin/master
+=======
+#myFooter {
+    background-color: #3a3f46;
+    color: white;
+>>>>>>> 4f9f50c11511d2d0d04b8d13fae634149a9696e3
 }
 
 #myFooter .row {
     margin-bottom: 60px;
 <<<<<<< HEAD
+<<<<<<< HEAD
     
 =======
 >>>>>>> origin/master
+=======
+>>>>>>> 4f9f50c11511d2d0d04b8d13fae634149a9696e3
 }
 
 #myFooter .info{
@@ -204,6 +216,7 @@ body{
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 col-sm-3 social{
     color:black;
@@ -213,6 +226,9 @@ col-sm-3 social{
 =======
 /*#brand{
 >>>>>>> origin/master
+=======
+/*#brand{
+>>>>>>> 4f9f50c11511d2d0d04b8d13fae634149a9696e3
 
   line-height: 2px;
   vertical-align:middle;
@@ -232,6 +248,7 @@ col-sm-3 social{
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 #footer-content {
@@ -245,6 +262,8 @@ col-sm-3 social{
 
 =======
 >>>>>>> origin/master
+=======
+>>>>>>> 4f9f50c11511d2d0d04b8d13fae634149a9696e3
 h1{
 color:black;
 font-family:garamond ;
@@ -289,6 +308,7 @@ a {
   color:white;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 }*/*/
 
 
@@ -297,3 +317,6 @@ a {
 =======
 }*/
 >>>>>>> origin/master
+=======
+}*/
+>>>>>>> 4f9f50c11511d2d0d04b8d13fae634149a9696e3
