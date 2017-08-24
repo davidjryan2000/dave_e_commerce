@@ -53,13 +53,11 @@ INSTALLED_APPS = [
     'Payments',
     'Products',
     'Gallery',
-<<<<<<< HEAD
     'blog',
     #'rest_framework'
     'disqus',
     'storages'
-=======
->>>>>>> 4f9f50c11511d2d0d04b8d13fae634149a9696e3
+
     # 'rest_framework',
     'psycopg2'
 ]
