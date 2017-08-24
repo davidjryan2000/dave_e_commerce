@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 class UserLoginForm(forms.Form):
     username_or_email = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput)
+<<<<<<< HEAD
 
 class UserRegistrationForm(UserCreationForm):
     password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
@@ -69,3 +70,5 @@ class SubscribeForm(forms.Form):
     expiry_month = forms.ChoiceField(label="Month", choices=MONTH_CHOICES)
     expiry_year = forms.ChoiceField(label="Year", choices=YEAR_CHOICES)
     stripe_id = forms.CharField(widget=forms.HiddenInput)'''
+=======
+>>>>>>> parent of 4d31df2... user registration & profile set up

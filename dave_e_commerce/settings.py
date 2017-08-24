@@ -44,8 +44,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_forms_bootstrap',
+<<<<<<< HEAD
     'django.contrib.sites',
     'django_gravatar',
+=======
+>>>>>>> parent of 4d31df2... user registration & profile set up
     'Home',
     'Accounts',
     'Cart',

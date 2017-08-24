@@ -35,12 +35,6 @@ from blog.views import post_list
 from django.conf import settings
 from blog import urls as blog_urls
 
-'''router = routers.DefaultRouter()
-router.register(r'products', product_views.ProductViewSet)
-router.register(r'users', cart_views.UserViewSet)
-router.register(r'cart', cart_views.CartItemViewSet)'''
-
-
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -52,8 +46,11 @@ urlpatterns = [
     url(r'^payments/', include(payments_urls)),
     url(r'^categories/', include(categories_urls)),
     url(r'^gallery/', include(gallery_urls)),
+<<<<<<< HEAD
     url(r'user/', include(accounts_urls)),
     url(r'^blog/',include(blog_urls)),
+=======
+>>>>>>> parent of 4d31df2... user registration & profile set up
     
 
 

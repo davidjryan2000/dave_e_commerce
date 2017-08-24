@@ -1,13 +1,15 @@
 from django.conf.urls import url
+<<<<<<< HEAD
 from .views import register, profile,logout, login
 from django.contrib.auth.views import password_reset, password_reset_done, password_reset_confirm, \
     password_reset_complete
 
 
+=======
+from .views import logout, login
+>>>>>>> parent of 4d31df2... user registration & profile set up
 
 urlpatterns = [
-    url(r'^register/$', register, name='register'),
-    url(r'^profile/$', profile, name='profile'),
     url(r'^logout/$', logout, name='logout'),
     url(r'^login', login, name='login'),   
 

@@ -68,10 +68,16 @@
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+<<<<<<< HEAD
     <link rel="stylesheet" href="{% static 'css/Footer-with-logo.css}">
     
     
     
+=======
+    <link rel="stylesheet" href="{% static 'font-awesome/css/gallery.css' %}">
+    <link rel="stylesheet" href="{% static 'font-awesome/css/product-options.css' %}">
+    {% block head_css %}{% endblock %}
+>>>>>>> parent of 4d31df2... user registration & profile set up
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
@@ -148,11 +154,19 @@
                 <li><a href="{% url 'categories' %}"></i> Products</a></li>
                 <li><a href="{% url 'cart' %}"></i> Cart</a></li>
             {% if user.is_authenticated %}
+<<<<<<< HEAD
                 <li><a href="{% url 'profile' %}"></i> Profile</a></li>
                 <li><a href="{% url 'logout' %}"></i> Log Out</a></li>
             {%  else %}
                 <li><a href="{% url 'register' %}"></i> Register</a></li>
                 <li><a href="{% url 'login' %}"></i> Log In</a></li>
+=======
+               <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+                <li><a href="{% url 'logout' %}"><i class="fa fa-sign-out"></i> Log Out</a></li>
+            {%  else %}
+                <li><a href="#"><i class="fa fa-user-plus"></i> Register</a></li>
+                <li><a href="{% url 'login' %}"><i class="fa fa-sign-in"></i> Log In</a></li>
+>>>>>>> parent of 4d31df2... user registration & profile set up
             {% endif %}
                     
       </ul>
