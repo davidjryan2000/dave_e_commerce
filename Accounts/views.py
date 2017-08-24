@@ -4,6 +4,11 @@ from django.core.urlresolvers import reverse
 from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.template.context_processors import csrf
 from django.contrib.auth.decorators import login_required
+from .forms import UserRegistrationForm, UserLoginForm, SubscribeForm
+
+
+
+
 
 
 @login_required(login_url='/accounts/login')

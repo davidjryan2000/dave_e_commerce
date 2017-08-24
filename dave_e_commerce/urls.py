@@ -30,7 +30,10 @@ from django.conf.urls import url, include
 from Products import views as product_views
 from Cart import views as cart_views
 from Gallery import urls as gallery_urls
-
+from django.views.static import serve
+from blog.views import post_list
+from django.conf import settings
+from blog import urls as blog_urls
 
 '''router = routers.DefaultRouter()
 router.register(r'products', product_views.ProductViewSet)
@@ -49,7 +52,8 @@ urlpatterns = [
     url(r'^payments/', include(payments_urls)),
     url(r'^categories/', include(categories_urls)),
     url(r'^gallery/', include(gallery_urls)),
-   # url(r'user/', include(reset_urls)),
+    url(r'user/', include(accounts_urls)),
+    url(r'^blog/',include(blog_urls)),
     
 
 

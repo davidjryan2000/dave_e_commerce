@@ -1,17 +1,88 @@
-{% extends 'base.html' %}
+{% comment %}{% extends 'base.html' %}
 {% load static %}
-{% block head_css %}<link rel="stylesheet" type="text/css" href="{% static 'font-awesome/css/gallery.css' %}" />{% endblock %}
-{% block content %}
+{% block content %}{% endcomment %}
 
 
 
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Mailo Power</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+
+
+        <!-- Jquery -->
+        <script src="static/assets/js/plugins/jquery-1.11.3.min.js"></script> 
+ 
+         <!-- Favicon -->
+        <link rel="shortcut icon" type="image/x-icon" href="static/assets/img/favicon.ico">
+
+        <!-- CSS Styles -->
+        <link rel="stylesheet" href="static/assets/css/bootstrap.min.css">          
+        <link rel="stylesheet" href="static/assets/css/main.css">  
+
+        <!-- Animate CSS -->
+        <link rel="stylesheet" href="static/assets/css/animate.min.css">  
+
+        <!-- Revolution Slider -->
+        <link rel="stylesheet" href="static/assets/js/plugins/revolution/css/settings.css">        
+        <link rel="stylesheet" href="static/assets/js/plugins/revolution/css/layers.css">                
+        <link rel="stylesheet" href="static/assets/js/plugins/revolution/css/navigation.css">   
+
+        <!-- Owl Carousel -->
+        <script type="text/javascript" src="static/assets/js/plugins/owl-carousel/owl.carousel.min.js"></script>
+        <link rel="stylesheet" href="static/assets/js/plugins/owl-carousel/owl.carousel.css">         
+
+        <!-- Google Web Fonts -->           
+        <link href='https://fonts.googleapis.com/css?family=Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,700,900' rel='stylesheet' type='text/css'>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+        <!-- Slider Revolution -->
+        <script src="static/assets/js/plugins/revolution/js/jquery.themepunch.tools.min.js"></script>
+        <script src="static/assets/js/plugins/revolution/js/jquery.themepunch.revolution.min.js"></script>  
+
+        <!-- Slider Revolution 5.0 Extensions  
+            (Load Extensions only on Local File Systems !  
+            The following part can be removed on Server for On Demand Loading) -->  
+        <script type="text/javascript" src="static/assets/js/plugins/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+        <script type="text/javascript" src="static/assets/js/plugins/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+        <script type="text/javascript" src="static/assets/js/plugins/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+        <script type="text/javascript" src="static/assets/js/plugins/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+        <script type="text/javascript" src="static/assets/js/plugins/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+        <script type="text/javascript" src="static/assets/js/plugins/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+        <script type="text/javascript" src="static/assets/js/plugins/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+        <script type="text/javascript" src="static/assets/js/plugins/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+        <script type="text/javascript" src="static/assets/js/plugins/revolution/js/extensions/revolution.extension.video.min.js"></script>
+    
+ 
+        
+
+
+       
+</head>
 <body>
-<div class="container">
-        <div class="row">
-        <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <h1 class="gallery-title">Gallery</h1>
-        </div>
 
+<<<<<<< HEAD
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->  
+
+    {% comment %}<!-- Loader Start -->
+    <div id="preloader">
+        <div class="preloader-container">
+            <div class="sk-folding-cube">                
+                <div class="sk-cube1 sk-cube"></div>
+                <div class="sk-cube2 sk-cube"></div>                
+                <div class="sk-cube4 sk-cube"></div>
+                <div class="sk-cube3 sk-cube"></div>
+            </div>
+        </div>
+=======
         <div align="center">
             <button class="btn btn-default filter-button" data-filter="all">All</button>
             <button class="btn btn-default filter-button" data-filter="Spring">Spring</button>
@@ -21,19 +92,35 @@
         </div>
         <br/>
 
-{% for design in designs %}
-            
+<div class="row">
+    <div class="grid"  data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 200 }'>
+    <div class= "col-9-sm">
+
+    {% for design in designs %}
+
+
         <div class="product-container">
+            
             <div class="left-block">
-                <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter {{design.tag}}">
-                <div class="thumbnail">
-                <img src= "{{ MEDIA_URL }}{{ design.image }}" class="img-responsive" height="100%" width="100%">
+                <div class="grid-item gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 ">
+                <div class="thumbnail filter {{design.tag}}">
+                <img src= "{{ MEDIA_URL }}{{ design.image }}" class="img-responsive"  width="100%">
             <div class="right-block">
                 <figcaption><h4>"{{ design.name}}"</h4></figcaption>
                 <p>"{{ design.description }}</p>
 
         <div>
                 <a href="{% url 'product_options' design.id %}" class="btn btn-info" role="button">Buy</a>
+                
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Click to enlarge</button>
+
+                <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <img src= "{{ MEDIA_URL }}{{ design.image }}" class="img-responsive"  width="100%">
+                         </div>
+                    </div>
+                </div>
         </div>     
 
                 {% comment %}<form method="POST" action="/cart/add/{{product.id}}"> 
@@ -46,7 +133,12 @@
                  </div>
         </div>
 
-{% endfor %}   
+{% endfor %}  
+</div>
+</div>
+</div>
+ 
+ 
 
 
 
@@ -71,23 +163,70 @@
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button>
       </div>
+>>>>>>> origin/master
     </div>
-  </div>
-</div>      
-           {% endcomment %}
-          
-               
+    <!-- End Loader Start -->{% endcomment %}
 
+    
 
-</body>
+    <!-- Page Parallax Header -->
+    <div class="ws-parallax-header parallax-window" data-parallax="scroll" data-image-src="static/assets/img/backgrounds/shop-header-bg.jpg">        
+        <div class="ws-overlay">            
+            <div class="ws-parallax-caption">                
+                <div class="ws-parallax-holder">
+                    <h1>Our Products</h1>                        
+                </div>
+            </div>
+        </div>            
+    </div>            
+    <!-- End Page Parallax Header -->
 
-<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <!-- Page Content -->
+    <div class="container ws-page-container">
+        <div class="row">            
+            <div class="ws-shop-page">                
+                <!-- Categories Nav -->           
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#all" aria-controls="all" role="tab" data-toggle="tab">All (94)</a></li>
+                    <li role="presentation"><a href="#prints" aria-controls="prints" role="tab" data-toggle="tab">Abstract Prints (16)</a></li>
+                    <li role="presentation"><a href="#illustrated" aria-controls="illustrated" role="tab" data-toggle="tab">Illustrated Prints (18)</a></li>
+                    <li role="presentation"><a href="#journals" aria-controls="journals" role="tab" data-toggle="tab">Journals (6)</a></li>
+                    <li role="presentation"><a href="#sale" aria-controls="sale" role="tab" data-toggle="tab">Sale (33)</a></li>                    
+                </ul>
+                
+                <!-- Categories Content -->           
+                <div class="tab-content">
+                    <!-- All -->
+                    <div role="tabpanel" class="tab-pane fade in active" id="all">   
 
+                        <!-- Item -->
+                        <div class="col-sm-6 col-md-4 ws-works-item">
+                            <a href="#">                        
+                                <div class="ws-item-offer">
+                                    <!-- Image -->                        
+                                    <figure>                            
+                                        <img src="static/assets/img/works/abstract/5.jpg" alt="Alternative Text" class="img-responsive">
+                                    </figure>                    
+                                </div>
 
-<!--<script type='javascript' src='jquery-3.2.1.js'> </script>-->
+                                <div class="ws-works-caption text-center">
+                                    <!-- Item Category -->
+                                    <div class="ws-item-category">Abstract Prints</div>
 
+                                    <!-- Title -->
+                                    <h3 class="ws-item-title">Pinning Moon</h3>                        
 
-<script>
+                                    <div class="ws-item-separator"></div>    
+
+<<<<<<< HEAD
+                                    <!-- Price -->
+                                    <div class="ws-item-price"><del>$50.00</del> <ins>$25.00</ins></div>                                                    
+                                </div>
+                            </a>
+                        </div>
+=======
+
+   
 
 $(document).ready(function () {
         $('#myModal').on('show.bs.modal', function (e) {
@@ -95,58 +234,929 @@ $(document).ready(function () {
             $(".img-responsive").attr("src", image);
         });
 });
+>>>>>>> origin/master
 
+                        <!-- Item -->
+                        <div class="col-sm-6 col-md-4 ws-works-item">
+                            <a href="#">
+                                <!-- Image -->                        
+                                <figure>                            
+                                    <img src="static/assets/img/works/illustrated/4.jpg" alt="Alternative Text" class="img-responsive">
+                                </figure>
+                                <div class="ws-works-caption text-center">
+                                    <!-- Item Category -->
+                                    <div class="ws-item-category">Illustrated Prints</div>
 
+                                    <!-- Title -->
+                                    <h3 class="ws-item-title">Arkose Factor</h3>                        
 
-$(document).ready(function(){
+                                    <div class="ws-item-separator"></div>    
 
-    $(".filter-button").click(function(){
-        var value = $(this).attr('data-filter');
-        
-        if(value == "all")
-        {
-            //$('.filter').removeClass('hidden');
-            $('.filter').show('1000');
-        }
-        else
-        {
-//            $('.filter[filter-item="'+value+'"]').removeClass('hidden');
-//            $(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
-            $(".filter").not('.'+value).hide('3000');
-            $('.filter').filter('.'+value).show('3000');
-            
-        }
-    });
-    
-    if ($(".filter-button").removeClass("active")) {
-$(this).removeClass("active");
-}
-$(this).addClass("active");
+                                    <!-- Price -->
+                                    <div class="ws-item-price">$150.00</div>                        
+                                </div>
+                            </a>
+                        </div>
 
-});
+                        <!-- Item -->
+                        <div class="col-sm-6 col-md-4 ws-works-item">
+                            <a href="#">
+                                <!-- Image -->                        
+                                <figure>                            
+                                    <img src="static/assets/img/works/abstract/6.jpg" alt="Alternative Text" class="img-responsive">                
+                                </figure>
+                                <div class="ws-works-caption text-center">
+                                    <!-- Item Category -->
+                                    <div class="ws-item-category">Abstract Prints</div>
 
-$("#myModal").on("click", function() { alert("clicked")
-   $('#imagepreview').attr('src', $('#imageresource').attr('src')); // here asign the image to the modal when the user click the enlarge link
-   $('#imagemodal').modal('show'); // imagemodal is the id attribute assigned to the bootstrap modal, then i use the show function
-});
+                                    <!-- Title -->
+                                    <h3 class="ws-item-title">Interstellar</h3>                        
 
-//Dropdown menu js
+                                    <div class="ws-item-separator"></div>    
 
-$('.dropdown-menu a').on('click', function(){    
-    $('.dropdown-toggle').html($(this).html() + '<span class="caret"></span>');    
-})
+                                    <!-- Price -->
+                                    <div class="ws-item-price">$75.00</div>                        
+                                </div>
+                            </a>
+                        </div>
 
-</script> 
+                        <!-- Item -->
+                        <div class="col-sm-6 col-md-4 ws-works-item">
+                            <a href="#">                        
+                                <div class="ws-item-offer">
+                                    <!-- Image -->                        
+                                    <figure>                            
+                                        <img src="static/assets/img/works/journals/4.jpg" alt="Alternative Text" class="img-responsive">
+                                    </figure>                    
+                                </div>
 
+                                <div class="ws-works-caption text-center">
+                                    <!-- Item Category -->
+                                    <div class="ws-item-category">Abstract Prints</div>
 
-<!--<script type='javascript' src='Prints.js'> </script>-->
+                                    <!-- Title -->
+                                    <h3 class="ws-item-title">Pinning Moon</h3>                        
 
+                                    <div class="ws-item-separator"></div>    
+
+                                    <!-- Price -->
+                                    <div class="ws-item-price"><del>$50.00</del> <ins>$25.00</ins></div>                                                    
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Item -->
+                        <div class="col-sm-6 col-md-4 ws-works-item">
+                            <a href="#">
+                                <!-- Image -->                        
+                                <figure>                            
+                                    <img src="static/assets/img/works/illustrated/1.jpg" alt="Alternative Text" class="img-responsive">
+                                </figure>
+                                <div class="ws-works-caption text-center">
+                                    <!-- Item Category -->
+                                    <div class="ws-item-category">Illustrated Prints</div>
+
+                                    <!-- Title -->
+                                    <h3 class="ws-item-title">Arkose Factor</h3>                        
+
+                                    <div class="ws-item-separator"></div>    
+
+                                    <!-- Price -->
+                                    <div class="ws-item-price">$150.00</div>                        
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Item -->
+                        <div class="col-sm-6 col-md-4 ws-works-item">
+                            <a href="#">
+                                <!-- Image -->                        
+                                <figure>                            
+                                    <img src="static/assets/img/works/abstract/2.jpg" alt="Alternative Text" class="img-responsive">                
+                                </figure>
+                                <div class="ws-works-caption text-center">
+                                    <!-- Item Category -->
+                                    <div class="ws-item-category">Abstract Prints</div>
+
+                                    <!-- Title -->
+                                    <h3 class="ws-item-title">Interstellar</h3>                        
+
+                                    <div class="ws-item-separator"></div>    
+
+                                    <!-- Price -->
+                                    <div class="ws-item-price">$75.00</div>                        
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Item -->        
+                        <div class="col-sm-6 col-md-6 ws-works-item">
+                            <a href="#">
+                                <div class="ws-item-offer">
+                                    <!-- Image -->                        
+                                    <figure>                            
+                                        <img src="static/assets/img/works/journals/3.jpg" alt="Alternative Text" class="img-responsive">
+                                    </figure>                    
+                                </div>
+                                <div class="ws-works-caption text-center">
+                                    <!-- Item Category -->
+                                    <div class="ws-item-category">Journal</div>
+
+                                    <!-- Title -->
+                                    <h3 class="ws-item-title">Rubby Hubby</h3>                        
+
+                                    <div class="ws-item-separator"></div>    
+
+                                    <!-- Price -->
+                                    <div class="ws-item-price">$53.00</div>                        
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Item -->
+                        <div class="col-sm-6 col-md-6 ws-works-item">
+                            <a href="#">                        
+                                <div class="ws-item-offer">
+                                    <!-- Image -->                        
+                                    <figure>                            
+                                        <img src="static/assets/img/works/abstract/7.jpg" alt="Alternative Text" class="img-responsive">
+                                    </figure>                    
+                                </div>
+
+                                <div class="ws-works-caption text-center">
+                                    <!-- Item Category -->
+                                    <div class="ws-item-category">Abstract Prints</div>
+
+                                    <!-- Title -->
+                                    <h3 class="ws-item-title">Pinning Moon</h3>                        
+
+                                    <div class="ws-item-separator"></div>    
+
+                                    <!-- Price -->
+                                    <div class="ws-item-price"><del>$50.00</del> <ins>$25.00</ins></div>                                                    
+                                </div>
+                            </a>
+                        </div>  
+
+                        <!-- Item -->
+                        <div class="col-sm-6 col-md-4 ws-works-item">
+                            <a href="#">
+                                <!-- Image -->                        
+                                <figure>                            
+                                    <img src="static/assets/img/works/abstract/3.jpg" alt="Alternative Text" class="img-responsive">
+                                </figure>
+                                <div class="ws-works-caption text-center">
+                                    <!-- Item Category -->
+                                    <div class="ws-item-category">Abstract Prints</div>
+
+                                    <!-- Title -->
+                                    <h3 class="ws-item-title">Lake House</h3>                        
+
+                                    <div class="ws-item-separator"></div>    
+
+                                    <!-- Price -->
+                                    <div class="ws-item-price">$33.00</div>                        
+                                </div>
+                            </a>
+                        </div>  
+
+                        <!-- Item -->
+                        <div class="col-sm-6 col-md-4 ws-works-item">
+                            <a href="#">
+                                <!-- Image -->                        
+                                <figure>                            
+                                    <img src="static/assets/img/works/illustrated/2.jpg" alt="Alternative Text" class="img-responsive">
+                                </figure>
+                                <div class="ws-works-caption text-center">
+                                    <!-- Item Category -->
+                                    <div class="ws-item-category">Illustrated Prints</div>
+
+                                    <!-- Title -->
+                                    <h3 class="ws-item-title">Sorbetto</h3>                        
+
+                                    <div class="ws-item-separator"></div>    
+
+                                    <!-- Price -->
+                                    <div class="ws-item-price">$123.00</div>                        
+                                </div>
+                            </a>
+                        </div>    
+
+                        <!-- Item -->
+                        <div class="col-sm-6 col-md-4 ws-works-item">
+                            <a href="#">
+                                <!-- Image -->                        
+                                <figure>                            
+                                    <img src="static/assets/img/works/journals/2.jpg" alt="Alternative Text" class="img-responsive">
+                                </figure>
+                                <div class="ws-works-caption text-center">
+                                    <!-- Item Category -->
+                                    <div class="ws-item-category">Journals</div>
+
+                                    <!-- Title -->
+                                    <h3 class="ws-item-title">Thinking Wood</h3>                        
+
+                                    <div class="ws-item-separator"></div>    
+
+                                    <!-- Price -->
+                                    <div class="ws-item-price">$23.00</div>                        
+                                </div>
+                            </a>
+                        </div>  
+
+                        <!-- Item -->
+                        <div class="col-sm-6 col-md-6 ws-works-item">
+                            <a href="#">
+                                <div class="ws-item-offer">
+                                    <!-- Image -->                        
+                                    <figure>                            
+                                        <img src="static/assets/img/works/illustrated/3.jpg" alt="Alternative Text" class="img-responsive">
+                                    </figure>                                   
+                                </div>
+                                <div class="ws-works-caption text-center">
+                                    <!-- Item Category -->
+                                    <div class="ws-item-category">Illustrated Prints</div>
+
+                                    <!-- Title -->
+                                    <h3 class="ws-item-title">Grey Mountains</h3>                        
+
+                                    <div class="ws-item-separator"></div>    
+
+                                    <!-- Price -->
+                                    <div class="ws-item-price">$10.00</div>                        
+                                </div>
+                            </a>
+                        </div>                           
+
+                        <!-- Item -->
+                        <div class="col-sm-6 col-md-6 ws-works-item">
+                            <a href="#">
+                                <!-- Image -->                        
+                                <figure>                            
+                                    <img src="static/assets/img/works/abstract/4.jpg" alt="Alternative Text" class="img-responsive">
+                                </figure>
+                                <div class="ws-works-caption text-center">
+                                    <!-- Item Category -->
+                                    <div class="ws-item-category">Abstract Prints</div>
+
+                                    <!-- Title -->
+                                    <h3 class="ws-item-title">Thinking Wood</h3>                        
+
+                                    <div class="ws-item-separator"></div>    
+
+                                    <!-- Price -->
+                                    <div class="ws-item-price">$23.00</div>                        
+                                </div>
+                            </a>
+                        </div>                 
+
+                    </div>
+
+                    <!-- Abstract Prints -->
+                    <div role="tabpanel" class="tab-pane fade" id="prints">
+
+                        <!-- Item -->
+                        <div class="col-sm-6 col-md-4 ws-works-item">
+                            <a href="#">
+                                <!-- Image -->                        
+                                <figure>                            
+                                    <img src="static/assets/img/works/abstract/1.jpg" alt="Alternative Text" class="img-responsive">
+                                </figure>
+                                <div class="ws-works-caption text-center">
+                                    <!-- Item Category -->
+                                    <div class="ws-item-category">Abstract Prints</div>
+
+                                    <!-- Title -->
+                                    <h3 class="ws-item-title">Thinking Wood</h3>                        
+
+                                    <div class="ws-item-separator"></div>    
+
+                                    <!-- Price -->
+                                    <div class="ws-item-price">$23.00</div>                        
+                                </div>
+                            </a>
+                        </div> 
+
+                        <!-- Item -->
+                        <div class="col-sm-6 col-md-4 ws-works-item">
+                            <a href="#">                        
+                                <div class="ws-item-offer">
+                                    <!-- Image -->                        
+                                    <figure>                            
+                                        <img src="static/assets/img/works/abstract/2.jpg" alt="Alternative Text" class="img-responsive">
+                                    </figure>                    
+                                </div>
+
+                                <div class="ws-works-caption text-center">
+                                    <!-- Item Category -->
+                                    <div class="ws-item-category">Abstract Prints</div>
+
+                                    <!-- Title -->
+                                    <h3 class="ws-item-title">Pinning Moon</h3>                        
+
+                                    <div class="ws-item-separator"></div>    
+
+                                    <!-- Price -->
+                                    <div class="ws-item-price">$25.00</div>                                                    
+                                </div>
+                            </a>
+                        </div>                        
+
+                        <!-- Item -->
+                        <div class="col-sm-6 col-md-4 ws-works-item">
+                            <a href="#">
+                                <!-- Image -->                        
+                                <figure>                            
+                                    <img src="static/assets/img/works/abstract/3.jpg" alt="Alternative Text" class="img-responsive">                
+                                </figure>
+                                <div class="ws-works-caption text-center">
+                                    <!-- Item Category -->
+                                    <div class="ws-item-category">Abstract Prints</div>
+
+                                    <!-- Title -->
+                                    <h3 class="ws-item-title">Interstellar</h3>                        
+
+                                    <div class="ws-item-separator"></div>    
+
+                                    <!-- Price -->
+                                    <div class="ws-item-price">$75.00</div>                        
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Item -->
+                        <div class="col-sm-6 col-md-4 ws-works-item">
+                            <a href="#">                        
+                                <div class="ws-item-offer">
+                                    <!-- Image -->                        
+                                    <figure>                            
+                                        <img src="static/assets/img/works/abstract/4.jpg" alt="Alternative Text" class="img-responsive">
+                                    </figure>                    
+                                </div>
+
+                                <div class="ws-works-caption text-center">
+                                    <!-- Item Category -->
+                                    <div class="ws-item-category">Big Sea</div>
+
+                                    <!-- Title -->
+                                    <h3 class="ws-item-title">Pinning Moon</h3>                        
+
+                                    <div class="ws-item-separator"></div>    
+
+                                    <!-- Price -->
+                                    <div class="ws-item-price">$50.00</div>                                                    
+                                </div>
+                            </a>
+                        </div>                        
+
+                        <!-- Item -->
+                        <div class="col-sm-6 col-md-4 ws-works-item">
+                            <a href="#">
+                                <!-- Image -->                        
+                                <figure>                            
+                                    <img src="static/assets/img/works/abstract/5.jpg" alt="Alternative Text" class="img-responsive">                
+                                </figure>
+                                <div class="ws-works-caption text-center">
+                                    <!-- Item Category -->
+                                    <div class="ws-item-category">Abstract Prints</div>
+
+                                    <!-- Title -->
+                                    <h3 class="ws-item-title">Long Desert</h3>                        
+
+                                    <div class="ws-item-separator"></div>    
+
+                                    <!-- Price -->
+                                    <div class="ws-item-price">$65.00</div>                        
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Item -->
+                        <div class="col-sm-6 col-md-4 ws-works-item">
+                            <a href="#">
+                                <!-- Image -->                        
+                                <figure>                            
+                                    <img src="static/assets/img/works/abstract/6.jpg" alt="Alternative Text" class="img-responsive">                
+                                </figure>
+                                <div class="ws-works-caption text-center">
+                                    <!-- Item Category -->
+                                    <div class="ws-item-category">Abstract Prints</div>
+
+                                    <!-- Title -->
+                                    <h3 class="ws-item-title">Desert</h3>                        
+
+                                    <div class="ws-item-separator"></div>    
+
+                                    <!-- Price -->
+                                    <div class="ws-item-price">$15.00</div>                        
+                                </div>
+                            </a>
+                        </div>
+
+<<<<<<< HEAD
+                    </div>
+=======
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.12/jquery.mousewheel.js"></script>
 <script src="src/js/jquery.event.drag.js"></script>
 <script src="src/js/mag.js"></script>
 <script src="src/js/mag-jquery.js"></script>
+<script src="{% static 'js/masonry.pkgd.min.js'%}"></script>
+ <!--<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>-->
+>>>>>>> origin/master
 
-{% endblock content %}
+                    <!-- Illustrated Prints -->
+                    <div role="tabpanel" class="tab-pane fade" id="illustrated">   
+
+                        <!-- Item -->
+                        <div class="col-sm-6 col-md-4 ws-works-item">
+                            <a href="#">
+                                <!-- Image -->                        
+                                <figure>                            
+                                    <img src="static/assets/img/works/illustrated/1.jpg" alt="Alternative Text" class="img-responsive">
+                                </figure>
+                                <div class="ws-works-caption text-center">
+                                    <!-- Item Category -->
+                                    <div class="ws-item-category">Illustrated Prints</div>
+
+                                    <!-- Title -->
+                                    <h3 class="ws-item-title">Pink Flamingo</h3>                        
+
+                                    <div class="ws-item-separator"></div>    
+
+                                    <!-- Price -->
+                                    <div class="ws-item-price">$50.00</div>                        
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Item -->
+                        <div class="col-sm-6 col-md-4 ws-works-item">
+                            <a href="#">
+                                <!-- Image -->                        
+                                <figure>                            
+                                    <img src="static/assets/img/works/illustrated/4.jpg" alt="Alternative Text" class="img-responsive">
+                                </figure>
+                                <div class="ws-works-caption text-center">
+                                    <!-- Item Category -->
+                                    <div class="ws-item-category">Illustrated Prints</div>
+
+                                    <!-- Title -->
+                                    <h3 class="ws-item-title">Ghost Mountains</h3>                        
+
+                                    <div class="ws-item-separator"></div>    
+
+                                    <!-- Price -->
+                                    <div class="ws-item-price">$44.00</div>                        
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Item -->
+                        <div class="col-sm-6 col-md-4 ws-works-item">
+                            <a href="#">
+                                <!-- Image -->                        
+                                <figure>                            
+                                    <img src="static/assets/img/works/illustrated/3.jpg" alt="Alternative Text" class="img-responsive">
+                                </figure>
+                                <div class="ws-works-caption text-center">
+                                    <!-- Item Category -->
+                                    <div class="ws-item-category">Illustrated Prints</div>
+
+                                    <!-- Title -->
+                                    <h3 class="ws-item-title">Arkose Factor</h3>                        
+
+                                    <div class="ws-item-separator"></div>    
+
+                                    <!-- Price -->
+                                    <div class="ws-item-price">$92.00</div>                        
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <!-- Journals -->
+                    <div role="tabpanel" class="tab-pane fade" id="journals"> 
+
+                        <!-- Item -->
+                        <div class="col-sm-6 col-md-4 ws-works-item">
+                            <a href="#">
+                                <!-- Image -->                        
+                                <figure>                            
+                                    <img src="static/assets/img/works/journals/1.jpg" alt="Alternative Text" class="img-responsive">
+                                </figure>
+                                <div class="ws-works-caption text-center">
+                                    <!-- Item Category -->
+                                    <div class="ws-item-category">Journals</div>
+
+                                    <!-- Title -->
+                                    <h3 class="ws-item-title">Yellow Laguna</h3>                        
+
+                                    <div class="ws-item-separator"></div>    
+
+                                    <!-- Price -->
+                                    <div class="ws-item-price">$43.00</div>                        
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Item -->
+                        <div class="col-sm-6 col-md-4 ws-works-item">
+                            <a href="#">
+                                <!-- Image -->                        
+                                <figure>                            
+                                    <img src="static/assets/img/works/journals/2.jpg" alt="Alternative Text" class="img-responsive">
+                                </figure>
+                                <div class="ws-works-caption text-center">
+                                    <!-- Item Category -->
+                                    <div class="ws-item-category">Journals</div>
+
+                                    <!-- Title -->
+                                    <h3 class="ws-item-title">Thinking Wood</h3>                        
+
+                                    <div class="ws-item-separator"></div>    
+
+                                    <!-- Price -->
+                                    <div class="ws-item-price">$23.00</div>                        
+                                </div>
+                            </a>
+                        </div>  
+
+                        <!-- Item -->        
+                        <div class="col-sm-6 col-md-4 ws-works-item">
+                            <a href="#">
+                                <div class="ws-item-offer">
+                                    <!-- Image -->                        
+                                    <figure>                            
+                                        <img src="static/assets/img/works/journals/3.jpg" alt="Alternative Text" class="img-responsive">
+                                    </figure>                    
+                                </div>
+                                <div class="ws-works-caption text-center">
+                                    <!-- Item Category -->
+                                    <div class="ws-item-category">Journal</div>
+
+                                    <!-- Title -->
+                                    <h3 class="ws-item-title">Rubby Hubby</h3>                        
+
+                                    <div class="ws-item-separator"></div>    
+
+                                    <!-- Price -->
+                                    <div class="ws-item-price">$53.00</div>                        
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Item -->
+                        <div class="col-sm-6 col-md-4 ws-works-item">
+                            <a href="#">
+                                <!-- Image -->                        
+                                <figure>                            
+                                    <img src="static/assets/img/works/journals/4.jpg" alt="Alternative Text" class="img-responsive">
+                                </figure>
+                                <div class="ws-works-caption text-center">
+                                    <!-- Item Category -->
+                                    <div class="ws-item-category">Journals</div>
+
+                                    <!-- Title -->
+                                    <h3 class="ws-item-title">twinkle twinkle</h3>                        
+
+                                    <div class="ws-item-separator"></div>    
+
+                                    <!-- Price -->
+                                    <div class="ws-item-price">$13.00</div>                        
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Item -->
+                        <div class="col-sm-6 col-md-4 ws-works-item">
+                            <a href="#">
+                                <!-- Image -->                        
+                                <figure>                            
+                                    <img src="static/assets/img/works/journals/5.jpg" alt="Alternative Text" class="img-responsive">
+                                </figure>
+                                <div class="ws-works-caption text-center">
+                                    <!-- Item Category -->
+                                    <div class="ws-item-category">Journals</div>
+
+                                    <!-- Title -->
+                                    <h3 class="ws-item-title">White Pantera</h3>                        
+
+                                    <div class="ws-item-separator"></div>    
+
+                                    <!-- Price -->
+                                    <div class="ws-item-price">$93.00</div>                        
+                                </div>
+                            </a>
+                        </div>  
+
+                        <!-- Item -->        
+                        <div class="col-sm-6 col-md-4 ws-works-item">
+                            <a href="#">
+                                <div class="ws-item-offer">
+                                    <!-- Image -->                        
+                                    <figure>                            
+                                        <img src="static/assets/img/works/journals/6.jpg" alt="Alternative Text" class="img-responsive">
+                                    </figure>                    
+                                </div>
+                                <div class="ws-works-caption text-center">
+                                    <!-- Item Category -->
+                                    <div class="ws-item-category">Journal</div>
+
+                                    <!-- Title -->
+                                    <h3 class="ws-item-title">Green Apple</h3>                        
+
+                                    <div class="ws-item-separator"></div>    
+
+                                    <!-- Price -->
+                                    <div class="ws-item-price">$123.00</div>                        
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <!-- Sale -->
+                    <div role="tabpanel" class="tab-pane fade" id="sale">     
+
+                        <!-- Item -->
+                        <div class="col-sm-6 col-md-4 ws-works-item">
+                            <a href="#">
+                                <div class="ws-item-offer">
+                                    <!-- Image -->                        
+                                    <figure>                            
+                                        <img src="static/assets/img/works/illustrated/3.jpg" alt="Alternative Text" class="img-responsive">
+                                    </figure>
+                                    <!-- Sale Caption -->
+                                    <div class="ws-item-sale">
+                                        <span>Sale</span>
+                                    </div>
+                                </div>
+                                <div class="ws-works-caption text-center">
+                                    <!-- Item Category -->
+                                    <div class="ws-item-category">Illustrated Prints</div>
+
+                                    <!-- Title -->
+                                    <h3 class="ws-item-title">Honey Beer</h3>                        
+
+                                    <div class="ws-item-separator"></div>    
+
+                                    <!-- Price -->
+                                    <div class="ws-item-price"><del>$23.00</del> <ins>$10.00</ins></div>                        
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Item -->
+                        <div class="col-sm-6 col-md-4 ws-works-item">
+                            <a href="#">                        
+                                <div class="ws-item-offer">
+                                    <!-- Image -->                        
+                                    <figure>                            
+                                        <img src="static/assets/img/works/abstract/1.jpg" alt="Alternative Text" class="img-responsive">
+                                    </figure>
+                                    <!-- Sale Caption -->
+                                    <div class="ws-item-sale">
+                                        <span>Sale</span>
+                                    </div>
+                                </div>
+
+                                <div class="ws-works-caption text-center">
+                                    <!-- Item Category -->
+                                    <div class="ws-item-category">Abstract Prints</div>
+
+                                    <!-- Title -->
+                                    <h3 class="ws-item-title">Pinning Moon</h3>                        
+
+                                    <div class="ws-item-separator"></div>    
+
+                                    <!-- Price -->
+                                    <div class="ws-item-price"><del>$50.00</del> <ins>$25.00</ins></div>                                                    
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Item -->
+                        <div class="col-sm-6 col-md-4 ws-works-item">
+                            <a href="#">
+                                <div class="ws-item-offer">
+                                    <!-- Image -->                        
+                                    <figure>                            
+                                        <img src="static/assets/img/works/illustrated/4.jpg" alt="Alternative Text" class="img-responsive">
+                                    </figure>
+                                    <!-- Sale Caption -->
+                                    <div class="ws-item-sale">
+                                        <span>Sale</span>
+                                    </div>
+                                </div>
+                                <div class="ws-works-caption text-center">
+                                    <!-- Item Category -->
+                                    <div class="ws-item-category">Illustrated Prints</div>
+
+                                    <!-- Title -->
+                                    <h3 class="ws-item-title">Grey Mountains</h3>                        
+
+                                    <div class="ws-item-separator"></div>    
+
+                                    <!-- Price -->
+                                    <div class="ws-item-price"><del>$43.00</del> <ins>$22.00</ins></div>                        
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Item -->
+                        <div class="col-sm-6 col-md-4 ws-works-item">
+                            <a href="#">                        
+                                <div class="ws-item-offer">
+                                    <!-- Image -->                        
+                                    <figure>                            
+                                        <img src="static/assets/img/works/abstract/2.jpg" alt="Alternative Text" class="img-responsive">
+                                    </figure>
+                                    <!-- Sale Caption -->
+                                    <div class="ws-item-sale">
+                                        <span>Sale</span>
+                                    </div>
+                                </div>
+
+                                <div class="ws-works-caption text-center">
+                                    <!-- Item Category -->
+                                    <div class="ws-item-category">Abstract Prints</div>
+
+                                    <!-- Title -->
+                                    <h3 class="ws-item-title">New Desert</h3>                        
+
+                                    <div class="ws-item-separator"></div>    
+
+                                    <!-- Price -->
+                                    <div class="ws-item-price"><del>$150.00</del> <ins>$75.00</ins></div>                                                    
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Item -->
+                        <div class="col-sm-6 col-md-4 ws-works-item">
+                            <a href="#">                        
+                                <div class="ws-item-offer">
+                                    <!-- Image -->                        
+                                    <figure>                            
+                                        <img src="static/assets/img/works/journals/2.jpg" alt="Alternative Text" class="img-responsive">
+                                    </figure>
+                                    <!-- Sale Caption -->
+                                    <div class="ws-item-sale">
+                                        <span>Sale</span>
+                                    </div>
+                                </div>
+
+                                <div class="ws-works-caption text-center">
+                                    <!-- Item Category -->
+                                    <div class="ws-item-category">Journals</div>
+
+                                    <!-- Title -->
+                                    <h3 class="ws-item-title">Red Flowers</h3>                        
+
+                                    <div class="ws-item-separator"></div>    
+
+                                    <!-- Price -->
+                                    <div class="ws-item-price"><del>$94.00</del> <ins>$52.00</ins></div>                                                    
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Item -->
+                        <div class="col-sm-6 col-md-4 ws-works-item">
+                            <a href="#">                        
+                                <div class="ws-item-offer">
+                                    <!-- Image -->                        
+                                    <figure>                            
+                                        <img src="static/assets/img/works/journals/4.jpg" alt="Alternative Text" class="img-responsive">
+                                    </figure>
+                                    <!-- Sale Caption -->
+                                    <div class="ws-item-sale">
+                                        <span>Sale</span>
+                                    </div>
+                                </div>
+
+                                <div class="ws-works-caption text-center">
+                                    <!-- Item Category -->
+                                    <div class="ws-item-category">Journals</div>
+
+                                    <!-- Title -->
+                                    <h3 class="ws-item-title">Pink Martini</h3>                        
+
+                                    <div class="ws-item-separator"></div>    
+
+                                    <!-- Price -->
+                                    <div class="ws-item-price"><del>$250.00</del> <ins>$125.00</ins></div>                                                    
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>  
+                <!-- End Categories Content -->   
+
+                <!-- Load More -->
+                <div class="ws-more-btn-holder col-sm-12">
+                    <a href="#x" class="btn ws-more-btn"> Load More</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- End Page Content -->
+
+    <!-- Instagram Content -->
+    <section id="ws-instagram-section">
+        <div class="container">
+            <div class="row vertical-align">
+
+                <!-- Instagram Information -->
+                <div class="col-sm-3">       
+                    <div class="ws-instagram-header">
+                        <h3>Instagram</h3>     
+                        <br>                   
+                        <a href="https://www.instagram.com/" target="_blank" class="ws-instagram-link"> @artday</a>                         
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy.</p>
+                    </div>
+                </div>
+
+                <!-- Instagram Item -->
+                <div class="col-sm-3 ws-instagram-item" data-sr='wait 0.1s, ease-in 20px'>
+                    <a href="https://www.instagram.com/" target="_blank">
+                        <img src="static/assets/img/journal/1.jpg" alt="Alternative Text" class="img-responsive">
+                    </a>
+                </div>    
+
+                <!-- Instagram Item -->
+                <div class="col-sm-3 ws-instagram-item" data-sr='wait 0.3s, ease-in 20px'>
+                    <a href="https://www.instagram.com/" target="_blank">
+                        <img src="static/assets/img/journal/4.jpg" alt="Alternative Text" class="img-responsive">
+                    </a>
+                </div>   
+
+                <!-- Instagram Item -->
+                <div class="col-sm-3 ws-instagram-item" data-sr='wait 0.5s, ease-in 20px'>
+                    <a href="https://www.instagram.com/" target="_blank">
+                        <img src="static/assets/img/journal/8.jpg" alt="Alternative Text" class="img-responsive">
+                    </a>
+                </div>                                   
+            </div>
+        </div>
+    </section>
+    <!-- End Instagram Content -->
+    
+    <!-- Subscribe Section -->
+    <section class="ws-subscribe-section">
+        <div class="container">
+            <div class="row">
+                <!-- Subscribe Content -->
+                <div class="ws-subscribe-content text-center clearfix">
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <h3>Sign up for the newsletter</h3>       
+                        <div class="ws-separator"></div>                             
+                        <!-- Form -->
+                        <form class="form-inline">                            
+                            <div class="form-group">                                
+                                <input type="email" class="form-control" placeholder="Enter your email">
+                            </div>   
+                            <!-- Button -->                         
+                            <a class="btn ws-btn-subscribe">Subscribe</a>                                 
+                        </form>
+                    </div>                
+                </div>
+            </div>          
+        </div>
+    </section>
+    <!-- End Subscribe Section -->   
+
+    
+    
+
+   <!-- Scripts -->
+       
+    <script type="text/javascript" src="static/assets/js/plugins/modernizr-2.8.3-respond-1.4.2.min.js' %}"></script>         
+    <script type="text/javascript" src="static/assets/js/plugins/revolution/js/jquery.themepunch.tools.min.js"></script>
+    <script type="text/javascript" src="static/assets/js/plugins/revolution/js/jquery.themepunch.revolution.min.js"></script>    
+    <script type="text/javascript" src="static/assets/js/plugins/owl-carousel/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="static/assets/js/plugins/parallax.min.js"></script>
+    <script type="text/javascript" src="static/assets/js/plugins/scrollReveal.min.js"></script>
+    <script type="text/javascript" src="static/assets/js/plugins/bootstrap-dropdownhover.min.js"></script>
+    <script type="text/javascript" src="static/assets/js/main.js"></script>
+ 
 
 
-{% comment %}https://bootsnipp.com/snippets/featured/thumbnail-with-caption-amp-buttons{% endcomment %}
+
+{% comment %}<!-- Scripts -->   
+
+    <script src="static/assets/js/plugins/bootstrap.min.js"></script>     
+    <script src="static/assets/js/plugins/modernizr-2.8.3-respond-1.4.2.min.js"></script>            
+    <script src="static/assets/js/plugins/owl-carousel/owl.carousel.min.js"></script>
+    <script src="static/assets/js/plugins/parallax.min.js"></script>    
+    <script src="static/assets/js/plugins/scrollReveal.min.js"></script>
+    <script src="static/assets/js/plugins/bootstrap-dropdownhover.min.js"></script>
+    <script src="static/assets/js/main.js"></script>
+    {% endcomment %}
+    
+
+</body>
+</html>
